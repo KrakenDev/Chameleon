@@ -1,5 +1,0 @@
-{ "api": "1.0.0",
-  "name": "Chameleon",
-  "main": "plugin.js",
-  "ui": "ui.html"
-}

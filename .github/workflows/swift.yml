@@ -1,0 +1,25 @@
+name: Swift
+
+on: repository_dispatch
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Figma Color Token Update
+      if: github.event.action == 'update_colors'
+      env:
+        PAYLOAD_CONTEXT: ${{ toJson(github.event.client_payload) }}
+      run: swift run
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_name: Hector Matos
+        author_email: hectormatos2011@gmail.com
+        message: "Updates the color tokens in Media.xcassets to reflect latest changes from Figma"
+        add: "*.xcassets"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
