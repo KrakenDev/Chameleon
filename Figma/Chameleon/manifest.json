@@ -1,0 +1,6 @@
+{
+  "api": "1.0.0",
+  "name": "Chameleon",
+  "main": "plugin.ts",
+  "ui": "ui.ts"
+}
